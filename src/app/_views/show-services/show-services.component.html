@@ -1,0 +1,14 @@
+<table class="table table-striped table-border">
+    <tr>
+        <td>Server Name</td>
+        <td>Service Name</td>
+        <td>Service Display Name</td>
+        <td>Service Status</td>
+    </tr>
+    <tr *ngFor="let servicedata of service_model">
+        <td>{{servicedata.serverName}}</td>
+        <td>{{servicedata.serviceName}}</td>
+        <td>{{servicedata.serviceDisplayName}}</td>
+        <td>{{servicedata.serviceStatus}}</td>
+    </tr>
+</table>
