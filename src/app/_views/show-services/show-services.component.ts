@@ -9,8 +9,8 @@ import { DataService } from 'src/app/_services/get-service-data.service';
 })
 export class ShowServicesComponent implements OnInit {
 
-  service_model: ServiceModel[] = [];
-
+  service_model: ServiceModel[];
+  grouping: {};
   constructor(private _data: DataService) { }
 
   ngOnInit(): void {
@@ -18,13 +18,19 @@ export class ShowServicesComponent implements OnInit {
   }
 
   private getCamstarServiceStatus() {
-    this._data.get_all_services().then((data: ServiceModel[]) => {
-      data.forEach(item => {
-        this.service_model.push(item);
-      });
-      console.log(this.service_model);
+    this._data.get_all_services().then((data) => {
+      console.log(data);
+      this.service_model = data as ServiceModel[];
+
+      this.grouping = this.service_model.reduce((r,a) => {
+        (r[a.serverName] = r[a.serverName] || []).push(a);
+        return r;
+      },{});
+      console.log(this.grouping);
     })
   }
+
+  
 
 
 

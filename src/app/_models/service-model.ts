@@ -1,7 +1,6 @@
 export class ServiceModel {
-    public serverName: {
-        serviceName: string;
-        serviceDisplayName: string
-        serviceStatus: string;
-    };
+    public serverName: string
+    public serviceName: string;
+    public serviceDisplayName: string
+    public serviceStatus: string;
 }
